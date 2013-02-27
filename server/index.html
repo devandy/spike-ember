@@ -1,0 +1,56 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]--> <!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]--> <!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> <!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title></title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css?v=2">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+  <script type="text/x-handlebars" data-template-name="application">
+    <h1>Hello from Ember.js</h1>
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="contributors">
+    {{#each person in controller}}
+      <a {{action showContributor person}}> {{person.login}} </a>
+    {{/each}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="a-contributor">
+    <div>
+      <a {{action showAllContributors}}>All Contributors</a>
+    </div>
+    {{login}} - {{contributions}} contributions to Ember.js
+
+    <div>
+      {{outlet}}
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="contributor-details">
+    <p>{{email}}</p>
+    <p>{{bio}}</p>
+  </script>
+
+  <script src="client/code/libs/jquery-1.7.2.min.js"></script>
+  <script src="client/code/libs/handlebars-1.0.0.beta.6.js"></script>
+  <script src="client/code/libs/ember-1.0.0-pre.2.min.js"></script>
+  <script src="client/code/src/app.js"></script>
+</body>
+</html>
